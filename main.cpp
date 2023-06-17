@@ -41,8 +41,8 @@ float train(float X[], float Y[], size_t epochs, float oscilate_weight) {
   for (size_t i = 0; i < epochs; i++) {
     float l = Lc(w);
     ls[i] = l;
-    float dis = (Lc(w + eps) - l) / eps;
-    w -= learning_rate * dis;
+    float dir = (Lc(w + eps) - l) / eps;
+    w -= learning_rate * dir;
     std::cout << "l = " << l << ", w = " << w << std::endl;
 
     if (i % 30 == 0 && i > 40) {
